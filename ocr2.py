@@ -20,4 +20,5 @@ for img in img_list:
     result = ''.join(ch for ch in result if (ch.isupper() or ch.isnumeric()))
     cv2.imshow("Detection", gray_bin)
     print(result)
+    print("Press any key")
     cv2.waitKey()
