@@ -161,7 +161,7 @@ Project Link: [https://github.com/radioactive11/ALPR-India](https://github.com/r
 
 
 
-<p align="center"> Made with :blue_heart: for :flag_india:
+<p align="center"> Made with :blue_heart: for India
 
 [contributors-shield]: https://img.shields.io/github/contributors/radioactive11/ALPR-India.svg?style=flat-square
 [contributors-url]: https://github.com/radioactive11/ALPR-India/graphs/contributors
