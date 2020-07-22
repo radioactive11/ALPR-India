@@ -46,7 +46,7 @@
 ## About The Project
 
 
-ALPR for India detects license plates from images of vehicles and converts license plate numbers to strings. This can be used by law enforcement vehicles to scan, in real time, **vehicle insuarance expiry**, **pollution check certificate validation**, and **possible blacklisted** vehicles on road </br>
+ALPR for India detects license plates from images of vehicles and converts license plate numbers to strings. This can be used by law enforcement vehicles to scan, in real time, **vehicle insurance expiry**, **pollution check certificate validation**, and **possible blacklisted** vehicles on road </br>
 
 The model was trained using YoloV4 on 2000 car images from [Google Open Image Dataset](https://g.co/dataset/open-images)
 
