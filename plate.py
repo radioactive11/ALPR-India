@@ -89,7 +89,8 @@ def YOLO(image_list):
             pass
     i = 0
     while (i < len(image_list)):
-        image = cv2.imread(image_list[i])
+        # print(os.listdir(), "\n\n\n")
+        image = cv2.imread(os.path.join("data/plates", image_list[i]))
         width = image.shape[1]
         height = image.shape[0]
 
@@ -112,12 +113,10 @@ def YOLO(image_list):
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    #Get the list of Input Image Files
-    
-    image_path = "data/plates/"			#  Directory of the image folder
-    image_list = glob.glob(image_path + "*.jpg")
-    image_list.append(glob.glob(image_path + "*.png"))		#  Get list of Images
-    while("" in image_list):
-        image_list.remove("")
-    print(image_list)		
-    YOLO(image_list)
+
+    image_list = os.listdir(os.path.join("data", "plates"))
+    img_list = []
+    for file in image_list:
+        if file.endswith(".jpg") or file.endswith(".png"):
+            img_list.append(file)
+    YOLO(img_list)

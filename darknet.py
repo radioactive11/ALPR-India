@@ -1,3 +1,32 @@
+#!python3
+"""
+Python 3 wrapper for identifying objects in images
+
+Requires DLL compilation
+
+Both the GPU and no-GPU version should be compiled; the no-GPU version should be renamed "yolo_cpp_dll_nogpu.dll".
+
+On a GPU system, you can force CPU evaluation by any of:
+
+- Set global variable DARKNET_FORCE_CPU to True
+- Set environment variable CUDA_VISIBLE_DEVICES to -1
+- Set environment variable "FORCE_CPU" to "true"
+
+
+To use, either run performDetect() after import, or modify the end of this file.
+
+See the docstring of performDetect() for parameters.
+
+Directly viewing or returning bounding-boxed images requires scikit-image to be installed (`pip install scikit-image`)
+
+
+Original *nix 2.7: https://github.com/pjreddie/darknet/blob/0f110834f4e18b30d5f101bf8f1724c34b7b83db/python/darknet.py
+Windows Python 2.7 version: https://github.com/AlexeyAB/darknet/blob/fc496d52bf22a0bb257300d3c79be9cd80e722cb/build/darknet/x64/darknet.py
+
+@author: Philip Kahn
+@date: 20180503
+"""
+#pylint: disable=R, W0401, W0614, W0703
 from ctypes import *
 import math
 import random
@@ -32,7 +61,11 @@ class DETECTION(Structure):
                 ("objectness", c_float),
                 ("sort_class", c_int),
                 ("uc", POINTER(c_float)),
-                ("points", c_int)]
+                ("points", c_int),
+                ("embeddings", POINTER(c_float)),
+                ("embedding_size", c_int),
+                ("sim", c_float),
+                ("track_id", c_int)]
 
 class DETNUMPAIR(Structure):
     _fields_ = [("num", c_int),
